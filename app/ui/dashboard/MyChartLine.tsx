@@ -8,6 +8,7 @@ import {
   LineElement,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
+import { Suspense } from 'react';
 
 ChartJS.register(
   CategoryScale,
@@ -16,7 +17,6 @@ ChartJS.register(
   LineElement,
   Tooltip
 );
-// import DayFilter from "@/app/ui/dashboard/DayFilter.jsx";
 
 export default function MyLineChart(){
   return (
@@ -33,8 +33,8 @@ export default function MyLineChart(){
             Male
           </p>
         </div>
-        {/* <DayFilter /> */}
       </div>
+      <Suspense fallback={<div>Loading...</div>}>
       <Line
         data={{
           labels: [
@@ -63,6 +63,7 @@ export default function MyLineChart(){
           ],
         }}
       />
+      </Suspense>
     </div>
   );
 };

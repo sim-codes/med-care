@@ -5,6 +5,7 @@ import Overview from '@/public/images/overview.png';
 import { Metadata } from 'next';
 import PatientTable from '@/app/ui/dashboard/table';
 import MyLineChart from '@/app/ui/dashboard/MyChartLine';
+import { Suspense } from 'react';
 
 export const metadata: Metadata = {
   title: 'Dashboard',
@@ -27,7 +28,9 @@ export default async function Page() {
           </div>
 
           <div className='w-full mt-2'>
-            <MyLineChart />
+            <Suspense fallback={<div>Loading...</div>}>
+              <MyLineChart />
+            </Suspense>
             
             <div className="m-3">
               <div className=" flex flex-row justify-between p-3">
