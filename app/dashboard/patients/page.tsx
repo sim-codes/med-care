@@ -1,3 +1,7 @@
 export default function Home() {
-    return <p>Patients</p>
+    return <main>
+        <div className="flex">
+            <h1 className="font-bold">Appointments</h1>
+        </div>
+    </main>
 }
