@@ -22,7 +22,6 @@ export default function DayFilter() {
         <Select
           options={options}
           labelField="name"
-          valueField="id"
           className="w-32 rounded-full border border-gray-200 p-5"
         />
       </div>
