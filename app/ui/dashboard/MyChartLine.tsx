@@ -16,7 +16,7 @@ ChartJS.register(
   LineElement,
   Tooltip
 );
-import DayFilter from "@/app/ui/dashboard/DayFilter";
+// import DayFilter from "@/app/ui/dashboard/DayFilter.jsx";
 
 export default function MyLineChart(){
   return (
@@ -33,7 +33,7 @@ export default function MyLineChart(){
             Male
           </p>
         </div>
-        <DayFilter />
+        {/* <DayFilter /> */}
       </div>
       <Line
         data={{

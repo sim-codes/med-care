@@ -1,6 +1,5 @@
 import Select from "react-dropdown-select";
 
-
 export default function DayFilter() {
     const options = [
       {
@@ -22,6 +21,7 @@ export default function DayFilter() {
         <Select
           options={options}
           labelField="name"
+          valueField="id"
           className="w-32 rounded-full border border-gray-200 p-5"
         />
       </div>
