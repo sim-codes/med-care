@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.0.18",
+    "@nextui-org/button": "^2.0.29",
     "@nextui-org/dropdown": "^2.1.17",
     "@nextui-org/react": "^2.2.10",
     "@tailwindcss/forms": "^0.5.7",

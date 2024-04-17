@@ -1,13 +1,8 @@
 'use client';
 
-import { Home,
-  CalendarDays,
-  ClipboardListIcon,
-  BriefcaseMedicalIcon,
-  UsersIcon,
-  SettingsIcon,
-
- } from 'lucide-react';
+import { HomeIcon, PatientIcon,
+  AppointmentIcon, ReportIcon,
+  DoctorIcon, SettingIcon } from '@/app/ui/icons';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
@@ -15,16 +10,16 @@ import clsx from 'clsx';
 // Map of links to display in the side navigation.
 // Depending on the size of the application, this would be stored in a database.
 const links = [
-  { name: 'Dasboard', href: '/dashboard', icon: Home },
+  { name: 'Dasboard', href: '/dashboard', icon: HomeIcon },
   {
     name: 'Appointments',
     href: '/dashboard/appointments',
-    icon: CalendarDays,
+    icon: AppointmentIcon,
   },
-  { name: 'Patients', href: '/dashboard/patients', icon: UsersIcon },
-  { name: 'Doctors', href: '/dashboard/doctors', icon: BriefcaseMedicalIcon },
-  { name: 'Reports', href: '/dashboard/reports', icon: ClipboardListIcon },
-  { name: 'Settings', href: '/dashboard/settings', icon: SettingsIcon },
+  { name: 'Patients', href: '/dashboard/patients', icon: PatientIcon },
+  { name: 'Doctors', href: '/dashboard/doctors', icon: DoctorIcon },
+  { name: 'Reports', href: '/dashboard/reports', icon: ReportIcon },
+  { name: 'Settings', href: '/dashboard/settings', icon: SettingIcon },
 ];
 
 export default function NavLinks() {
@@ -38,13 +33,13 @@ export default function NavLinks() {
             key={link.name}
             href={link.href}
             className={clsx(
-              "flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-gray-100 hover:border hover:border-teal-500 md:flex-none md:justify-start md:p-2 md:px-3",
+              "flex h-[48px] grow items-center justify-center gap-2 rounded-md p-3 text-[#676767] font-medium hover:bg-gray-100 md:flex-none md:justify-start md:p-2 md:px-3",
               {
-                'bg-teal-100 border border-teal-600': pathname === link.href,
+                'bg-teal-50 border border-[#00E7BD]': pathname === link.href,
               },
             )}
           >
-            <LinkIcon className="w-6" />
+            <LinkIcon />
             <p className="hidden md:block">{link.name}</p>
           </Link>
         );

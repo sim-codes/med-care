@@ -2,12 +2,12 @@ import { GripVerticalIcon } from "lucide-react";
 import Image from "next/image";
 import User from "@/public/images/user.avif";
 
-export default async function AppointmentTable() {
+export default function AppointmentTable() {
 
   return (
     <div className="mt-6 flow-root">
       <div className="inline-block min-w-full align-middle">
-        <div className="border border-gray-200 rounded-lg p-2 md:pt-0">
+        <div className="border border-gray-200 rounded-lg md:pt-0">
           <table className="hidden min-w-full text-gray-900 md:table">
             <thead className="rounded-lg text-left text-sm font-normal">
               <tr>

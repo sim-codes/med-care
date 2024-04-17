@@ -4,7 +4,7 @@ import { Button } from '@/app/ui/button';
 import { useForm } from 'react-hook-form';
 import { AuthActions } from '@/app/auth/utils';
 import { useRouter } from 'next/navigation';
-
+import { useState } from 'react';
 
 type FormData = {
   email: string;
@@ -23,12 +23,15 @@ export default function LoginForm() {
   const router = useRouter();
 
   const { login, storeToken } = AuthActions();
+  const [user, setUser] = useState(null);
 
   const onSubmit = (data: FormData) => {
+    
     login(data.email, data.password)
       .json((json) => {
         storeToken(json.access, "access");
         storeToken(json.refresh, "refresh");
+        setUser(json.user);
 
         router.push("/dashboard");
       })

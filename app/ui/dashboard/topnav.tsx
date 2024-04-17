@@ -12,7 +12,7 @@ import { Suspense } from 'react';
 
 export default function TopNav() {
   return (
-    <div className="flex flex-row px-3 py-4 md:px-2">
+    <div className="flex flex-row py-4">
       <Suspense fallback={<div>Loading...</div>}>
         <Search placeholder="Search for anything" />
       </Suspense>

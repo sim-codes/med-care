@@ -34,15 +34,20 @@ const removeTokens = () => {
     Cookies.remove("refreshToken");
 }
 
+const logout = () => {
+
+}
 
 const login = (email: string, password: string) => {
-    return wretch(`${endpoint}/user/login/`).accept("application/json")
+    return wretch(`${endpoint}/user/login/`)
+        .accept("application/json")
         .post({ email: email, password: password});
 };
 
 const handleJWTRefresh = () => {
     const refreshToken = getToken("refresh");
-    return wretch(`${endpoint}/user/token/refresh/`).accept("application/json")
+    return wretch(`${endpoint}/user/token/refresh/`)
+        .accept("application/json")
         .post({ refresh: refreshToken });
 };
 
