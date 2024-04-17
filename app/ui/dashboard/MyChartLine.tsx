@@ -52,12 +52,12 @@ export default function MyLineChart(){
         <h1 className="font-bold text-2xl">Patient Overview</h1>
         <div className="flex gap-3">
           <p className="flex items-center">
-            <div className="rounded-full w-3 h-3 bg-[#DF1AFF] me-1"></div>
+            <span className="rounded-full w-3 h-3 bg-[#DF1AFF] me-1"></span>
             Female
           </p>
 
           <p className="flex items-center">
-            <div className="rounded-full w-3 h-3 bg-[#00E7BD] me-1"></div>
+            <span className="rounded-full w-3 h-3 bg-[#00E7BD] me-1"></span>
             Male
           </p>
         </div>

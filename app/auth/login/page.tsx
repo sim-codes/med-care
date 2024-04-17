@@ -1,3 +1,5 @@
+"use client";
+
 import LoginForm from '@/app/ui/auth/login-form';
 import { Metadata } from 'next';
 import Link from 'next/link';
@@ -5,9 +7,9 @@ import Image from 'next/image';
 import medCareLogo from '@/public/medcare-logo.svg';
 
 
-export const metadata: Metadata = {
-  title: 'Login',
-};
+// export const metadata: Metadata = {
+//   title: 'Login',
+// };
 
 export default function LoginPage() {
   return (
