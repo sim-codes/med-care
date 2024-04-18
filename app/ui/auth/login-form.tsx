@@ -25,8 +25,6 @@ export default function LoginForm() {
   const { login, storeToken } = AuthActions();
   const [user, setUser] = useState(null);
 
-  console.log("Status: ", isSubmitting);
-
   const onSubmit = async (data: FormData) => {
     
     await login(data.email, data.password)
@@ -38,7 +36,6 @@ export default function LoginForm() {
       })
       .catch((err) => {
         setError("root", { type: "manual", message: err.json.message });
-        console.log(err.json.message);
       });
   };
 
