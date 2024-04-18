@@ -4,13 +4,22 @@ import { Metadata } from 'next';
 import PatientTable from '@/app/ui/dashboard/table';
 import MyLineChart from '@/app/ui/dashboard/MyChartLine';
 
-// export const metadata: Metadata = {
-//   title: 'Dashboard',
-// };
+export const metadata: Metadata = {
+  title: 'Dashboard',
+};
 
-export default function Page() {
+export default function Page({
+  searchParams,
+}: {
+  searchParams?: {
+    query?: string;
+    page?: string;
+  };
+}) {
+  const query = searchParams?.query || '';
+  const currentPage = Number(searchParams?.page || '1');
 
-  // const { data: user } = useSWR("/user/token/refresh/", fetcher);
+  console.log('query', query);
 
   return (
     <main>
@@ -34,7 +43,7 @@ export default function Page() {
                 <h2 className='font-bold'>Patient Data</h2>
                 <p className='text-teal-300 font-normal'>View all</p>
               </div>
-              <PatientTable />
+              <PatientTable currentPage={currentPage} />
             </div>
           </div>
         </div>

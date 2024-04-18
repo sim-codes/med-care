@@ -16,7 +16,7 @@ export default function LoginForm() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
     setError,
   } = useForm<FormData>();
 
@@ -25,14 +25,15 @@ export default function LoginForm() {
   const { login, storeToken } = AuthActions();
   const [user, setUser] = useState(null);
 
-  const onSubmit = (data: FormData) => {
+  console.log("Status: ", isSubmitting);
+
+  const onSubmit = async (data: FormData) => {
     
-    login(data.email, data.password)
+    await login(data.email, data.password)
       .json((json) => {
         storeToken(json.access, "access");
         storeToken(json.refresh, "refresh");
         setUser(json.user);
-
         router.push("/dashboard");
       })
       .catch((err) => {
@@ -96,12 +97,12 @@ export default function LoginForm() {
       </div>
     </form>
   );
-}
 
-function LoginButton() {
-  return (
-    <Button className="mt-4 w-full">
-      Sign in
-    </Button>
-  );
+  function LoginButton() {
+    return (
+      <Button className="mt-4 w-full" arial-disabled={isSubmitting}>
+        Sign in
+      </Button>
+    );
+  }
 }
