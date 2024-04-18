@@ -25,9 +25,9 @@ export default function LoginForm() {
   const { login, storeToken } = AuthActions();
   const [user, setUser] = useState(null);
 
-  const onSubmit = async (data: FormData) => {
+  const onSubmit = (data: FormData) => {
     
-    await login(data.email, data.password)
+    login(data.email, data.password)
       .json((json) => {
         storeToken(json.access, "access");
         storeToken(json.refresh, "refresh");
@@ -97,7 +97,7 @@ export default function LoginForm() {
 
   function LoginButton() {
     return (
-      <Button className="mt-4 w-full" arial-disabled={isSubmitting}>
+      <Button className="mt-4 w-full" arial-disabled={isSubmitting.toString()}>
         Sign in
       </Button>
     );
