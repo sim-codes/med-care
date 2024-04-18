@@ -1,7 +1,10 @@
+'use client';
+
 import Link from 'next/link';
 import NavLinks from '@/app/ui/dashboard/nav-links';
 import { LogoutIcon } from '@/app/ui/icons';
 import { Logo } from '@/app/ui/icons';
+import LogoutForm from '@/app/ui/auth/logout-form';
 
 export default function SideNav() {
   return (
@@ -15,12 +18,7 @@ export default function SideNav() {
         <NavLinks />
         <div className="hidden h-auto w-full grow rounded-md bg-gray-50 md:block"></div>
       </div>
-      <form>
-          <button className="flex h-[48px] w-full grow items-center justify-center gap-2 rounded-md p-3 text-[#676767] font-medium hover:bg-gray-100 md:flex-none md:justify-start md:p-2 md:px-3">
-            <LogoutIcon />
-            <div className="hidden md:block">Log Out</div>
-          </button>
-        </form>
+      <LogoutForm />
     </div>
   );
 }

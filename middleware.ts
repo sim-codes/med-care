@@ -10,6 +10,8 @@ export function middleware(request: NextRequest) {
   if (!accessToken && request.nextUrl.pathname !== "/") {
     return NextResponse.redirect(new URL("/auth/login", request.url));
   }
+
+  return NextResponse.next();
 }
 
 export const config = {

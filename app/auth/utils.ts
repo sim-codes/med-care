@@ -35,12 +35,13 @@ const removeTokens = () => {
 }
 
 const logout = () => {
-
+    removeTokens();
 }
 
 const login = (email: string, password: string) => {
     return wretch(`${endpoint}/user/login/`)
         .accept("application/json")
+        .options({ credentials: "same-origin" }, true)
         .post({ email: email, password: password});
 };
 
@@ -48,12 +49,14 @@ const handleJWTRefresh = () => {
     const refreshToken = getToken("refresh");
     return wretch(`${endpoint}/user/token/refresh/`)
         .accept("application/json")
+        .options({ credentials: "same-origin" }, true)
         .post({ refresh: refreshToken });
 };
 
 export const AuthActions = () => {
     return {
         login,
+        logout,
         handleJWTRefresh,
         storeToken,
         getToken,
