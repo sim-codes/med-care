@@ -1,5 +1,5 @@
 import Pagination from '@/app/ui/dashboard/patients/pagination';
-import GetPatientsData from '@/app/lib/data';
+import {GetPatientsData} from '@/app/lib/data';
 
 export default function Patients({
     searchParams,

@@ -30,7 +30,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
   return (
     <div className="grid gap-4">
 
-    <div className="relative flex flex-1 flex-shrink-0">
+    <div className="relative flex flex-1 flex-shrink-0 gap-3">
       <label htmlFor="search" className="sr-only">
         Search
       </label>
@@ -45,7 +45,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
       />
 
       <button
-      className='m-2'
+      className='w-20 border border-gray-200 p-2 rounded-lg hover:bg-gray-100'
       onClick={() => {
         setSearchTerm(!searchTerm);
       }}
