@@ -25,7 +25,6 @@ export default function Search({ placeholder }: { placeholder: string }) {
   }, 300);
 
   const { data, isLoading } = GetPatientsRecord(searchParams.get('query')?.toString() || '', 1);
-  console.log(data?.results[0].patient);
 
   return (
     <div className="grid gap-4">

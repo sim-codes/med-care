@@ -1,6 +1,7 @@
 import SideNav from '@/app/ui/dashboard/sidenav';
 import TopNav from '@/app/ui/dashboard/topnav';
 import { cookies } from 'next/headers';
+import User from '@/public/images/user.avif';
 
 export default async function Layout({ children }: { children: React.ReactNode }) {
 
@@ -14,7 +15,7 @@ export default async function Layout({ children }: { children: React.ReactNode }
             <div className="flex-grow p-6 md:overflow-y-auto md:p-7">
                 <TopNav 
                 full_name={`${userJson.firstname} ${userJson.lastname}`}
-                avatar={userJson.image}
+                avatar={userJson.image || User}
                 role={userJson.role}
                 />
                 {children}
