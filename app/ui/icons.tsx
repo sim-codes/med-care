@@ -13,6 +13,7 @@ import doctorCardIcon from '@/public/images/icons/doctor-card.svg';
 import nurseCardIcon from '@/public/images/icons/nurse-card.svg';
 import patientCardIcon from '@/public/images/icons/patients-card.svg';
 import appointmentCardIcon from '@/public/images/icons/appointment-card.svg';
+import moreTableIcon from '@/public/images/icons/more.svg';
 
 
 import Link from 'next/link';
@@ -89,5 +90,11 @@ export function PatientCardIcon() {
 export function AppointmentCardIcon() {
     return (
         <Image src={appointmentCardIcon} alt="Appointment Card Icon" width="20" />
+    )
+}
+
+export function MoreTableIcon() {
+    return (
+        <Image src={moreTableIcon} alt="More Table Icon" />
     )
 }

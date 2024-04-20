@@ -5,6 +5,7 @@ export type Patient = {
     status: Array<string>;
     school_id: number;
     school_role: Array<string>;
+    image: string;
 };
 
 export type APIData = {
@@ -13,3 +14,17 @@ export type APIData = {
     next: string;
     previous: string;
 };
+
+export type User = {
+    id: string;
+    name: string;
+    email: string;
+    password: string;
+    image: string;
+    role: string;
+};
+
+export type TokenRequest = {
+    access: string;
+    refresh: string;
+}

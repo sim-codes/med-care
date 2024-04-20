@@ -3,12 +3,13 @@ import RightNav from '@/app/ui/dashboard/rightnav';
 import { Metadata } from 'next';
 import PatientTable from '@/app/ui/dashboard/table';
 import MyLineChart from '@/app/ui/dashboard/MyChartLine';
+import { cookies } from 'next/headers';
 
 export const metadata: Metadata = {
   title: 'Dashboard',
 };
 
-export default function Page({
+export default async function Page({
   searchParams,
 }: {
   searchParams?: {
@@ -19,12 +20,13 @@ export default function Page({
   const query = searchParams?.query || '';
   const currentPage = Number(searchParams?.page || '1');
 
-  console.log('query', query);
+  const user= await cookies().get('MedUser')?.value;
+  const userJson = JSON.parse(user as string);
 
   return (
     <main>
       <h1 className={`mb-4 text-xl text-[#676767] md:text-4xl font-bold`}>
-        Welcome, Mr Ayo
+        Welcome, Mr {userJson?.firstname}
       </h1>
         <p className={`mb-4 text-sm text-[#676767] font-light`}>
         Have a great day at work!

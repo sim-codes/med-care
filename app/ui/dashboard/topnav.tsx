@@ -10,7 +10,15 @@ import User from '@/public/images/user.avif';
 import { Suspense } from 'react';
 
 
-export default function TopNav() {
+export default function TopNav({
+  full_name,
+  role,
+  avatar,
+}: {
+  full_name: string;
+  avatar: string;
+  role: string;
+}) {
   return (
     <div className="flex flex-row py-4">
       <Suspense fallback={<div>Loading...</div>}>
@@ -22,14 +30,14 @@ export default function TopNav() {
 
         <div className='flex flex-row space-x-2 items-center gap-3'>
               <Image
-              src={User}
-              className="rounded-lg border border-gray-200"
+              src={avatar}
+              className="rounded-lg border-2 object-cover border-gray-200 w-10 h-10"
               width={40}
               height={40}
               alt={`Profile picture`} />
             <div className='flex flex-col'>
-                <p className='font-bold leading-4'>Segun Ayo</p>
-                <p className='text-xs text-gray-300 font-light'>Admin</p>
+                <p className='font-bold leading-4'>{full_name}</p>
+                <p className='text-xs text-gray-300 font-light'>{role}</p>
             </div>
             <ArrowDownIcon className='w-3'/>
         </div>

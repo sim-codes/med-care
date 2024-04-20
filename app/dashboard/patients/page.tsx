@@ -1,10 +1,21 @@
 import { FilterIcon, CirclePlusIcon } from "lucide-react"
-import AppointmentTable from "@/app/ui/dashboard/appointmentTable"
-// import { Modal } from "@/app/ui/dashboard/appointmentModal"
+import PatientTable from '@/app/ui/dashboard/table';
+import { Suspense } from "react";
+// import { Modal } from "@/app/ui/dashboard/appointmentModal";
 
-export default function Page() {
-    // const [open, setOpen] = useState<boolean>(false);
+export default function Page(
+    {
+        searchParams,
+      }: {
+        searchParams?: {
+          query?: string;
+          page?: string;
+        };
+      }) {
+        const query = searchParams?.query || '';
+        const currentPage = Number(searchParams?.page || '1');
     return (
+
         <main className="p-10">
             <div className="flex flex-row justify-between">
             <h1 className="font-bold text-4xl">Staff List</h1>
@@ -24,8 +35,7 @@ export default function Page() {
                 </div>
             </div>
         </div>
-        {/* <AppointmentTable /> */}
-
+            <PatientTable currentPage={currentPage} />
         </main>
     )
 }

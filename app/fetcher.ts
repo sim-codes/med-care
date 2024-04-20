@@ -1,8 +1,5 @@
 import wretch, { Wretch, WretchError } from "wretch";
-import { AuthActions } from "@/app/auth/utils";
-
-// Extract necessary functions from AuthActions utility.
-const { handleJWTRefresh, storeToken, getToken } = AuthActions();
+import { storeToken, getToken, handleJWTRefresh } from '@/app/lib/actions';
 
 const api = () => {
     return (
@@ -13,12 +10,13 @@ const api = () => {
             .catcher(401, async (error: WretchError, request: Wretch) => {
                 try {
                     // Attempt to refresh the JWT token.
-                    const { access } = (await handleJWTRefresh().json()) as { 
-                        access: string 
+                    const { access } = (await handleJWTRefresh()) as { 
+                        access: string
                     };
 
                     // Store the new access token.
                     storeToken(access, "access");
+                    // storeToken(refresh, "refresh");
 
                     // Replay the original request with the new access token.
                     return request
