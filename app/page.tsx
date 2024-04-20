@@ -9,7 +9,7 @@ export default function Home() {
       <Link href="/dashboard" className='text-cyan-500 me-2'>
         Dashboard
       </Link>
-      <Link href="/auth/login" className='text-cyan-500'>
+      <Link href="/login" className='text-cyan-500'>
         Login
       </Link>
     </div>
