@@ -20,11 +20,12 @@ export default function TopNav({
   role: string;
 }) {
   return (
-    <div className="flex flex-row py-4">
-      <Suspense fallback={<div>Loading...</div>}>
+    <div className="grid grid-cols-6 py-4 gap-4">
+      <div className="col-span-5">
         <Search placeholder="Search for anything" />
-      </Suspense>
-      <div className="flex grow flex-row justify-end items-center space-x-2 md:flex-row md:space-x-3 md:space-y-2">
+      </div>
+
+      <div className="place-self-start flex grow flex-row justify-end items-center space-x-2 md:flex-row md:space-x-3 md:space-y-2">
         
         <BellIcon className='w-10 h-10 border border-gray-200 p-1 rounded-lg'/>
 

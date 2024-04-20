@@ -28,3 +28,20 @@ export type TokenRequest = {
     access: string;
     refresh: string;
 }
+
+export type SPatient = {
+    name: string;
+    image: string;
+    status: string;
+}
+
+export type Results = {
+    date_in: string;
+    diagnosis: string;
+    patient: string;
+}
+
+export type SearchData = {
+    pages: number;
+    results: Array<Results>;
+}

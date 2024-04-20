@@ -3,7 +3,7 @@
 import { MoreTableIcon } from "../icons";
 import Image from "next/image";
 import User from "@/public/images/user.avif";
-import GetPatientsData from '@/app/lib/data';
+import {GetPatientsData} from '@/app/lib/data';
 import Pagination from '@/app/ui/dashboard/patients/pagination';
 import { PatientTableSkeleton } from "./skeletons";
 
@@ -46,7 +46,7 @@ export default function PatientTable({
             </thead>
             <tbody className="bg-white">
               {
-                patients?.map((patient, index) => (
+                patients?.map((patient: any, index: number) => (
                   <tr key={index}>
                     <td className="whitespace-nowrap py-3 pl-6 pr-3">
                     <div className="flex items-center gap-3">
