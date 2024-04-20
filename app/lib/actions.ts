@@ -17,6 +17,7 @@ export async function storeToken(token: string, type: "access" | "refresh") {
         httpOnly: true,
         sameSite: "strict",
         secure: true,
+        expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30),
     })
 }
 
@@ -27,6 +28,7 @@ export async function storeUser(user: User)  {
         httpOnly: true,
         sameSite: "strict",
         secure: true,
+        expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30),
     })
 }
 
@@ -37,9 +39,10 @@ export async function getToken(type: string) {
 }
 
 // remove the tokens from the cookies
-export async function removeTokens() {
+export async function removeUserTokens() {
     cookies().delete("accessToken");
     cookies().delete("refreshToken");
+    cookies().delete("MedUser");
 }
 
 // handleJWTRefresh function

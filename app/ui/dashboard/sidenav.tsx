@@ -4,6 +4,7 @@ import { LogoutIcon } from '@/app/ui/icons';
 import { Logo } from '@/app/ui/icons';
 import LogoutForm from '@/app/ui/auth/logout-form';
 import { signOut } from '@/auth';
+import { removeUserTokens } from '@/app/lib/actions';
 
 export default function SideNav() {
   return (
@@ -20,7 +21,10 @@ export default function SideNav() {
       <form className="space-y-3" 
       action={async () => {
         'use server';
+
+        await removeUserTokens();
         await signOut();
+
       }}
       >
         <LogoutButton />
